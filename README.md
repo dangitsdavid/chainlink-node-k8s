@@ -1,5 +1,7 @@
 # Deploy Chainlink nodes in K8s
 
+Deploy Chainlink nodes with Kubernetes
+
 ## Pre-req
 
 1. This deployment was tested on [Linode](https://www.linode.com/) and loadbalancer service created for Linode Loadbalancer - make changes to code per your cloud provider.
