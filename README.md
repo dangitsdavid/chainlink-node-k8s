@@ -2,8 +2,9 @@
 
 ## Pre-req
 
-1. You will need a already running PostgreSQL database.
-2. Export variables required for the deployment and using `envsubst` to populate those variables.
+1. This deployment was tested on [Linode](https://www.linode.com/) and loadbalancer service created for Linode Loadbalancer - make changes to code per your cloud provider.
+2. You will need a already running PostgreSQL database.
+3. Export the required variables below for the deployment and using `envsubst` to populate those variables.
 
 | Variable | Description                                                                                                        |
 | -------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -11,3 +12,5 @@
 | PWD      | <span>base64 encoded keystore password: <br><code>echo -e "keystore_pwd" &#124; base64</code></span>               |
 | ETHURL   | Ethereum client websocket endpoint (from on-prem or provider infura, fiews, etc.) <br><code>wss://eth.url</code>   |
 | DBURL    | Postgres connection string: <br><code>postgresql://<db_username>:<db_password>@<db_url>:<db_port>/<db_name></code> |
+
+envsubst < k8s_object.yaml | kubectl apply -f k8s_object.yaml

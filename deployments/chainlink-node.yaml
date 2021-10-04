@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chainlink-deployment
+  labels:
+    app: chainlink-node
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: chainlink-node
+  template:
+    metadata:
+      labels:
+        app: chainlink-node
+    spec:
+      containers:
+      - name: chainlink
+        image: smartcontract/chainlink:0.10.14
+        args: ["local", "n", "-p", "/chainlink/.password", "-a", "/chainlink/.api"]
+        envFrom:
+        - configMapRef:
+            name: env-file
+        ports:
+        - containerPort: 6688
+        volumeMounts:
+        - name: api-volume
+          mountPath: /chainlink/.api
+          subPath: .api
+        - name: password-volume
+          mountPath: /chainlink/.password
+          subPath: .password
+        resources:
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+      volumes:
+      - name: api-volume
+        secret:
+          secretName: api-secret
+          defaultMode: 0400
+      - name: password-volume
+        secret:
+          secretName: password-secret
+          defaultMode: 0400
