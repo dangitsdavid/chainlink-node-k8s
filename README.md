@@ -14,4 +14,7 @@
 | DBURL    | Postgres connection string: <br><code>postgresql://<db_username>:<db_password>@<db_url>:<db_port>/<db_name></code> |
 
 4. Use `envsubst` to populate required variables to K8s objects during deployment.
-   envsubst < k8s_object.yaml | kubectl apply -f k8s_object.yaml
+
+```
+envsubst < k8s_object.yaml | kubectl apply -f k8s_object.yaml
+```
