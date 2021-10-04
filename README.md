@@ -3,7 +3,7 @@
 ## Pre-req
 
 1. This deployment was tested on [Linode](https://www.linode.com/) and loadbalancer service created for Linode Loadbalancer - make changes to code per your cloud provider.
-2. You will need a already running PostgreSQL database.
+2. You will need a running PostgreSQL database.
 3. Export the required variables below for the deployment.
 
 | Variable | Description                                                                                                        |
