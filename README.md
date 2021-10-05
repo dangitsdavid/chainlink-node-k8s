@@ -18,5 +18,5 @@ Deploy Chainlink nodes with Kubernetes
 4. Use `envsubst` to populate required variables to K8s objects during deployment.
 
 ```
-envsubst < k8s_object.yaml | kubectl apply -f k8s_object.yaml
+envsubst < k8s_object.yaml | kubectl apply -f -
 ```
