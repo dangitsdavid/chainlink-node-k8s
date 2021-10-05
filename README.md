@@ -1,4 +1,4 @@
-# Deploy Chainlink nodes in K8s
+# Deploy Chainlink nodes with K8s
 
 Deploy Chainlink nodes with Kubernetes
 
